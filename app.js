@@ -12,6 +12,7 @@ mongoose.connect("mongodb://localhost:27017/yelp_campv4", { useNewUrlParser: tru
 
 app.use(bodyparser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 seedDB();
 
 app.get("/", function (req, res) {
