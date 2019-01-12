@@ -28,8 +28,14 @@ router.post('/', (req,res)=>{
 				if(err){
 					console.log(err)
 				}else{
+					//add username and id
+					comment.author.id = req.user._id
+					comment.author.username = req.user.username
+					//save comment
+					comment.save()
 					campground.comments.push(comment)
-					campground.save()
+					campground.save(comment)
+					console.log()
 					res.redirect('/campground/' + campground._id)
 				}
 			})

@@ -5,7 +5,7 @@ var express         = require('express'),
 	passport        = require('passport'),
 	LocalStrategy   = require('passport-local'),
 	User            = require('./models/user'),
-	seedDB          = require('./seeds'),
+	//seedDB          = require('./seeds'),
 	PORT            = process.env.PORT || 3000
 
 var commentRoutes   = require('./routes/comments'),
@@ -18,7 +18,7 @@ mongoose.connect('mongodb://localhost:27017/yelp_campv4', { useNewUrlParser: tru
 app.use(bodyparser.urlencoded({extended: true}))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
-seedDB()
+//seedDB() //seeding the database
 
 //PASSPORT CONFIG
 app.use(require('express-session')({
