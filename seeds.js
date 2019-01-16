@@ -1,6 +1,6 @@
-var mongoose   = require('mongoose')
-var Campground = require('./models/campground')
-var Comment = require('./models/comment')
+var mongoose   = require('mongoose');
+var Campground = require('./models/campground');
+var Comment = require('./models/comment');
 
 var data = [
 	{
@@ -18,20 +18,20 @@ var data = [
 		image: 'https://i.ytimg.com/vi/KdsQl3Pja9o/maxresdefault.jpg',
 		description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam possimus nihil voluptatum quam fugiat debitis exercitationem magni laborum maiores iste delectus ipsa porro natus aperiam doloremque, quisquam mollitia. Voluptatum, aliquid!'
 	}
-]
+];
 
 function deleteComment() {
 	Comment.deleteMany({}, (err)=>{
 		if (err) {
-			console.log(err)
+			console.log(err);
 		}else{
-			console.log('delete comment')
+			console.log('delete comment');
 		}
-	})
+	});
 }
 
 function seedDB(err) {
-	deleteComment()
+	deleteComment();
 	Campground.deleteMany({}, function (err) {
 		// if (err) {
 		// 	console.log(err)
@@ -60,8 +60,8 @@ function seedDB(err) {
 		// 		}
 		// 	})
 		// })
-	})
+	});
 
 }
 
-module.exports = seedDB
+module.exports = seedDB;

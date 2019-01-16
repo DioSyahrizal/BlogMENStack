@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 
 var commentSchema = mongoose.Schema({
 	text: String,
@@ -9,6 +9,6 @@ var commentSchema = mongoose.Schema({
 		},
 		username: String
 	}
-})
+});
 
-module.exports = mongoose.model('Comment', commentSchema)
+module.exports = mongoose.model('Comment', commentSchema);
