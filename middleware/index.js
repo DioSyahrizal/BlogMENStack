@@ -13,11 +13,13 @@ middlewareObj.checkOwnerCamp = (req, res, next)=>{
 				if (id.equals(req.user._id)) {
 					next();
 				} else {
+					req.flash('error','You don\'t have a permission to do that');
 					res.redirect('back');
 				}
 			}
 		});
 	}else{
+		req.flash('error','You need to log in');
 		res.redirect('back');
 	}
 };
@@ -34,11 +36,13 @@ middlewareObj.checkOwnerComment = (req, res, next)=>{
 				if (id.equals(userid)) {
 					next();
 				} else {
+					req.flash('error','You don\'t have a permission to do that');
 					res.redirect('back');
 				}
 			}
 		});
 	}else{
+		req.flash('error','You need to log in');
 		res.redirect('back');
 	}
 };
@@ -47,6 +51,7 @@ middlewareObj.isLoggedIn = (req, res, next)=>{
 	if (req.isAuthenticated()) {
 		return next();
 	}
+	req.flash('error', 'You need to log in');
 	res.redirect('/login');
 };
 

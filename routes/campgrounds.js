@@ -72,7 +72,6 @@ router.put('/:id', middleware.checkOwnerCamp, (req,res)=>{
 		}
 	});
 });
-
 //DELETE
 router.delete('/:id', middleware.checkOwnerCamp, (req, res) => {
 	Campground.findByIdAndRemove(req.params.id, (err)=>{
